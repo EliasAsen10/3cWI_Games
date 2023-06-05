@@ -2,10 +2,14 @@ package at.ase.test;
 
 import org.newdawn.slick.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class ObjectsGame extends BasicGame {
 
-    private Rectangle rectangle;
-    private Rectangle rectangle2;
+    private List<Actor>actors;
+
 
     public ObjectsGame(String title) {
         super(title);
@@ -14,22 +18,38 @@ public class ObjectsGame extends BasicGame {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-        this.rectangle = new Rectangle(100, 100, 10);
-        this.rectangle2 = new Rectangle(5,10, 5);
+        this.actors = new ArrayList<>();
+
+        Random random = new Random();
+        //Rectangle rectangle;
+        for (int i = 0; i <10   ; i++) {
+            Rectangle rectangle = new Rectangle(random.nextInt(800), random.nextInt(600), random.nextInt(50));
+            this.actors.add(rectangle);
+            
+        }       
+
+
+        for (int i = 0; i < 10; i++) {
+            Circle circle = new Circle();
+            this.actors.add(circle);
+            
+        }
     }
 
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        this.rectangle.update(delta);
-        this.rectangle2.update(delta);
+    for (Actor actor: this.actors) {
+        actor.update(delta);
+    }
     }
 
 
     @Override
     public void render (GameContainer gameContainer, Graphics graphics) throws SlickException {
-        this.rectangle.render(graphics);
-        this.rectangle2.render(graphics);
+        for (Actor actor: this.actors) {
+            actor.render(graphics);
+        }
     }
 
     public static void main (String[]argv){

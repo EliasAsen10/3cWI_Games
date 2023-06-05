@@ -2,11 +2,11 @@ package at.ase.test;
 
 import org.newdawn.slick.Graphics;
 
-public class Rectangle {
+public class Rectangle implements Actor{
     private float x;
     private float y;
     private float speed;
-    private enum Direction {RIGHT, DOWN, LEFT, UP}
+    private enum Direction {RIGHT, DOWN , LEFT, UP}
 
     public Rectangle(float x, float y, float speed) {
         this.x = x;

@@ -1,10 +1,15 @@
 package at.ase.test;
 
+import net.java.games.input.DirectAndRawInputEnvironmentPlugin;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+
+import static at.ase.test.Direction.LEFT;
+import static at.ase.test.Direction.RIGHT;
 
 public class ObjectsGame extends BasicGame {
 
@@ -23,10 +28,10 @@ public class ObjectsGame extends BasicGame {
         Random random = new Random();
         //Rectangle rectangle;
         for (int i = 0; i <10   ; i++) {
-            Rectangle rectangle = new Rectangle(random.nextInt(800), random.nextInt(600), random.nextInt(50));
+            Rectangle rectangle = new Rectangle(LEFT);
             this.actors.add(rectangle);
             
-        }       
+        }
 
 
         for (int i = 0; i < 10; i++) {
@@ -34,7 +39,18 @@ public class ObjectsGame extends BasicGame {
             this.actors.add(circle);
             
         }
+
+        for (int i = 0; i < 10; i++) {
+            Ellipse ellipse = new Ellipse();
+            this.actors.add(ellipse);
+
+        }
+
+
+
     }
+
+  
 
 
     @Override
